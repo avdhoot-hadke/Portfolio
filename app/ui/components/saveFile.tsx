@@ -4,7 +4,7 @@ import { saveAs } from "file-saver";
 export default function SaveFile() {
   const saveFile = () => {
     saveAs(
-      "https://drive.google.com/uc?export=download&id=1NFtvoTsZ5emNCao3BPZeIn2wh6D7aN9x",
+      "https://drive.google.com/uc?export=download&id=1jjjPzYRzUikcYleWW-BikHoP7iHPP4CS",
       "avdhoot_hadke_resume.pdf"
     );
   };
