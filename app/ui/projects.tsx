@@ -29,7 +29,7 @@ export default function Projects() {
           </p>
           <div className="flex justify-center pt-5">
             <Github link={"https://github.com/avdhoot-hadke/Netflix-clone"} />
-            <Demo link={"netflix.avdhoothadke.com/"} />
+            <Demo link={"https://netflix-clone-liart-mu.vercel.app/"} />
           </div>
         </div>
       </div>
