@@ -2,10 +2,10 @@
 import { saveAs } from "file-saver";
 
 export default function SaveFile() {
-  const saveFile = () => {
-    saveAs(
-      "https://drive.google.com/uc?export=download&id=1jjjPzYRzUikcYleWW-BikHoP7iHPP4CS",
-      "avdhoot_hadke_resume.pdf"
+  const openLink = () => {
+    window.open(
+      "https://drive.google.com/file/d/1bP_FAecR0BZ2Zc4eW8ge-cNIKsxGgdDG/view?usp=drive_link",
+      "_blank"
     );
   };
   return (
@@ -13,7 +13,7 @@ export default function SaveFile() {
       <button
         className=" flex transition ease-out text-zinc-300 hover:text-white fill-zinc-300 hover:fill-white duration-300 hover:-translate-y-1 hover:scale-110 text-cyan-950 text-lg bg-gradient-to-r from-cyan-600 hover:from-cyan-700 to-blue-600 hover:to-blue-700   py-1 px-2 rounded-lg"
         type="button"
-        onClick={saveFile}
+        onClick={openLink}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
