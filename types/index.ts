@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Project {
     id: string;
     title: string;
@@ -15,6 +17,17 @@ export interface Experience {
     period: string;
     description: string[];
     tech: string[]
+}
+export interface SkillCategory {
+    id: string;
+    title: string;
+    icon: "languages" | "frontend" | "backend" | "database" | "devops" | "concepts";
+    skills: string[];
+}
+
+export interface SkillCardProps {
+    category: SkillCategory;
+    index: number;
 }
 
 export enum Section {

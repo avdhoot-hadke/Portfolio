@@ -86,7 +86,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.1 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
                             className="text-transparent bg-clip-text bg-gradient-to-br from-white via-zinc-400 to-zinc-700"
                         >
                             HADKE
@@ -95,10 +95,10 @@ export default function Hero({ scrollToSection }: HeroProps) {
 
                     <div className="flex flex-col md:flex-row justify-between gap-8 border-t border-white/10 pt-8 mt-12">
                         <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                            className="max-w-md text-zinc-400 text-lg"
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.7 }}
+                            className="max-w-md text-zinc-400 text-sm lg:text-lg"
                         >
                             Software Engineer focused on building reliable, scalable products using modern full-stack technologies.
                             Experienced with microservices, system design, and performance optimization; strong DSA foundation (1700+ LeetCode).

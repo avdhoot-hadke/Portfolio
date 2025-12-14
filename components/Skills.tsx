@@ -10,71 +10,28 @@ import {
     Terminal,
     Layout,
 } from "lucide-react";
+import { SkillCardProps } from "@/types";
+import { skillCategories } from "@/data/skills";
 
-/* ---------------------------------- */
-/* Data                                */
-/* ---------------------------------- */
-
-const skillCategories = [
-    {
-        id: "core",
-        title: "Core Stack",
-        icon: <Globe className="h-4 w-4" />,
-        skills: ["TypeScript", "React 19", "Next.js 14", "Node.js", "Python", "Go"],
-    },
-    {
-        id: "ui",
-        title: "Interface & Motion",
-        icon: <Layout className="h-4 w-4" />,
-        skills: [
-            "Tailwind CSS",
-            "Framer Motion",
-            "Three.js",
-            "WebGL",
-            "GSAP",
-            "Shadcn UI",
-        ],
-    },
-    {
-        id: "backend",
-        title: "Infrastructure",
-        icon: <Database className="h-4 w-4" />,
-        skills: [
-            "PostgreSQL",
-            "Redis",
-            "Docker",
-            "AWS",
-            "Vercel Edge",
-            "Supabase",
-        ],
-    },
-    {
-        id: "ai",
-        title: "Intelligence",
-        icon: <BrainCircuit className="h-4 w-4" />,
-        skills: [
-            "Gemini API",
-            "OpenAI",
-            "LangChain",
-            "TensorFlow.js",
-            "RAG Pipelines",
-        ],
-    },
-];
+const iconMap = {
+    languages: Cpu,
+    frontend: Layout,
+    backend: Globe,
+    database: Database,
+    devops: Terminal,
+    concepts: BrainCircuit,
+} as const;
 
 /* ---------------------------------- */
 /* Skill Card                          */
 /* ---------------------------------- */
 
-interface SkillCardProps {
-    category: (typeof skillCategories)[number];
-    index: number;
-}
-
 function SkillCard({ category, index }: SkillCardProps) {
     const ref = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
+    const Icon = iconMap[category.icon];
+
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!ref.current) return;
@@ -119,7 +76,7 @@ function SkillCard({ category, index }: SkillCardProps) {
                         {/* Header */}
                         <div className="mb-8 flex items-center justify-between text-zinc-400 transition-colors group-hover:text-white">
                             <div className="rounded-lg border border-white/5 bg-zinc-900 p-2">
-                                {category.icon}
+                                <Icon className="h-4 w-4" />
                             </div>
                             <span className="font-mono text-[10px] uppercase opacity-50">
                                 0{index + 1}
