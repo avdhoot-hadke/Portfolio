@@ -29,6 +29,18 @@ export interface SkillCardProps {
     category: SkillCategory;
     index: number;
 }
+export interface Project {
+    id: string;
+    title: string;
+    description: string;
+    tags: string[];
+    image: string;
+    featured?: boolean;
+}
+export interface SpotlightCardProps {
+    children: React.ReactNode;
+    className?: string;
+}
 
 export enum Section {
     HERO = 'hero',

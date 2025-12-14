@@ -4,67 +4,8 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-
-/* ---------------------------------- */
-/* Types                               */
-/* ---------------------------------- */
-
-export interface Project {
-    id: string;
-    title: string;
-    description: string;
-    tags: string[];
-    image: string;
-    featured?: boolean;
-}
-
-/* ---------------------------------- */
-/* Data                                */
-/* ---------------------------------- */
-
-const projects: Project[] = [
-    {
-        id: "1",
-        title: "Neon Commerce",
-        description:
-            "A headless e-commerce platform built with Next.js 14 and Shopify API. Features 3D product previews.",
-        tags: ["Next.js", "WebGL", "Shopify"],
-        image: "https://picsum.photos/800/600?random=1",
-        featured: true,
-    },
-    {
-        id: "2",
-        title: "Agent Zero",
-        description: "Autonomous AI agent dashboard for managing complex workflows.",
-        tags: ["React", "Gemini API", "Node"],
-        image: "https://picsum.photos/600/600?random=2",
-    },
-    {
-        id: "3",
-        title: "Lumina UI",
-        description:
-            "An open-source React component library for dark mode interfaces.",
-        tags: ["TypeScript", "Tailwind", "NPM"],
-        image: "https://picsum.photos/600/400?random=3",
-    },
-    {
-        id: "4",
-        title: "Crypto Pulse",
-        description:
-            "Real-time cryptocurrency analytics dashboard with WebSocket integration.",
-        tags: ["WebSockets", "D3.js", "FinTech"],
-        image: "https://picsum.photos/600/600?random=4",
-    },
-];
-
-/* ---------------------------------- */
-/* Spotlight Card                      */
-/* ---------------------------------- */
-
-interface SpotlightCardProps {
-    children: React.ReactNode;
-    className?: string;
-}
+import { Project, SpotlightCardProps } from "@/types";
+import { projects } from "@/data/project";
 
 function SpotlightCard({ children, className = "" }: SpotlightCardProps) {
     const ref = useRef<HTMLDivElement>(null);
@@ -156,7 +97,7 @@ export default function BentoGrid() {
                                 : "md:col-span-1 md:row-span-1"
                         }
                     >
-                        <SpotlightCard className="h-full group">
+                        <SpotlightCard className="h-full group aspect-[16/10]">
                             {/* Background Image */}
                             <div className="absolute inset-0 z-0">
                                 <Image
@@ -165,7 +106,7 @@ export default function BentoGrid() {
                                     fill
                                     priority={idx === 0}
                                     sizes="(max-width: 768px) 100vw, 50vw"
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-40 group-hover:opacity-30 grayscale group-hover:grayscale-0"
+                                    className="object-fill transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-90 grayscale group-hover:grayscale-0"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                             </div>
@@ -201,7 +142,7 @@ export default function BentoGrid() {
                                     {/* Description */}
                                     <p
                                         className={`text-zinc-400 mt-2 ${project.featured
-                                            ? "max-w-md text-lg"
+                                            ? "max-w-md text-md"
                                             : "text-sm line-clamp-2"
                                             }`}
                                     >
