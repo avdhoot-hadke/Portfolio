@@ -9,7 +9,6 @@ export interface Project {
     link?: string;
     featured?: boolean;
 }
-
 export interface Experience {
     id: string;
     role: string;
@@ -24,7 +23,6 @@ export interface SkillCategory {
     icon: "languages" | "frontend" | "backend" | "database" | "devops" | "concepts";
     skills: string[];
 }
-
 export interface SkillCardProps {
     category: SkillCategory;
     index: number;
@@ -41,7 +39,6 @@ export interface SpotlightCardProps {
     children: React.ReactNode;
     className?: string;
 }
-
 export enum Section {
     HERO = 'hero',
     WORK = 'work',
@@ -51,6 +48,19 @@ export enum Section {
     CONTACT = 'contact'
 }
 
+export interface SocialLink {
+    id: string;
+    name: string;
+    icon: "github" | "leetcode" | "linkedin" | "twitter";
+    username: string;
+    stats: string;
+    color: string;
+    url: string;
+}
+export interface TiltCardProps {
+    link: SocialLink;
+    index: number;
+}
 export interface ChatMessage {
     id: string;
     role: 'user' | 'model';

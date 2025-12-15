@@ -61,7 +61,7 @@ export default function Navigation({
                             onClick={() => scrollToSection(Section.HERO)}
                             className="h-8 w-8 rounded-full bg-white text-black text-xs font-bold flex items-center justify-center hover:scale-105 transition"
                         >
-                            DE
+                            AH
                         </button>
 
                         <div

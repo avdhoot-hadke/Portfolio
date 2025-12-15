@@ -14,72 +14,19 @@ import {
     ExternalLink,
     Twitter,
 } from "lucide-react";
+import { socialLinks } from "@/data/social";
+import { SocialLink, TiltCardProps } from "@/types";
 
 /* ---------------------------------- */
-/* Types                               */
+/* Icon Map                            */
 /* ---------------------------------- */
 
-interface SocialLink {
-    id: string;
-    name: string;
-    icon: React.ReactNode;
-    username: string;
-    stats: string;
-    color: string;
-    url: string;
-}
-
-/* ---------------------------------- */
-/* Data                                */
-/* ---------------------------------- */
-
-const socialLinks: SocialLink[] = [
-    {
-        id: "github",
-        name: "GitHub",
-        icon: <Github size={24} />,
-        username: "@thearchitect",
-        stats: "2.5k Commits",
-        color: "shadow-purple-900/20",
-        url: "https://github.com",
-    },
-    {
-        id: "leetcode",
-        name: "LeetCode",
-        icon: <Code size={24} />,
-        username: "CodeNinja",
-        stats: "Top 1.5% • 450+ Solved",
-        color: "shadow-yellow-900/20",
-        url: "https://leetcode.com",
-    },
-    {
-        id: "linkedin",
-        name: "LinkedIn",
-        icon: <Linkedin size={24} />,
-        username: "Alex Developer",
-        stats: "500+ Connections",
-        color: "shadow-blue-900/20",
-        url: "https://linkedin.com",
-    },
-    {
-        id: "twitter",
-        name: "X / Twitter",
-        icon: <Twitter size={24} />,
-        username: "@dev_editions",
-        stats: "Tech Insights",
-        color: "shadow-white/20",
-        url: "https://twitter.com",
-    },
-];
-
-/* ---------------------------------- */
-/* Tilt Card                           */
-/* ---------------------------------- */
-
-interface TiltCardProps {
-    link: SocialLink;
-    index: number;
-}
+const iconMap: Record<SocialLink["icon"], React.ElementType> = {
+    github: Github,
+    leetcode: Code,
+    linkedin: Linkedin,
+    twitter: Twitter,
+};
 
 function TiltCard({ link, index }: TiltCardProps) {
     const ref = useRef<HTMLAnchorElement>(null);
@@ -103,6 +50,8 @@ function TiltCard({ link, index }: TiltCardProps) {
 
     const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
+
+    const Icon = iconMap[link.icon];
 
     const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (!ref.current) return;
@@ -180,10 +129,12 @@ function TiltCard({ link, index }: TiltCardProps) {
                     style={{ transformStyle: "preserve-3d" }}
                 >
                     {/* Icon Row */}
-                    <div style={{ transform: "translateZ(50px)" }}>
+                    <div
+                        style={{ transform: "translateZ(30px)" }}
+                    >
                         <div className="mb-4 flex items-start justify-between">
                             <div className="rounded-lg bg-zinc-800 p-3 text-white shadow-lg transition-colors group-hover:bg-white group-hover:text-black">
-                                {link.icon}
+                                <Icon size={24} />
                             </div>
                             <ExternalLink
                                 size={16}
@@ -193,7 +144,9 @@ function TiltCard({ link, index }: TiltCardProps) {
                     </div>
 
                     {/* Text */}
-                    <div style={{ transform: "translateZ(30px)" }}>
+                    <div
+                        style={{ transform: "translateZ(20px)" }}
+                    >
                         <h3 className="mb-1 text-2xl font-bold text-white">
                             {link.name}
                         </h3>
@@ -210,9 +163,6 @@ function TiltCard({ link, index }: TiltCardProps) {
     );
 }
 
-/* ---------------------------------- */
-/* Social Hub                          */
-/* ---------------------------------- */
 
 export default function SocialHub() {
     return (

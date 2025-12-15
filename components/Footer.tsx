@@ -26,27 +26,7 @@ export default function Footer() {
                     {/* Right */}
                     <div className="flex flex-col items-start justify-end gap-6 md:items-end">
                         <a
-                            href="#"
-                            className="group flex items-center gap-4 text-2xl text-white transition-colors hover:text-zinc-400"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>GitHub</span>
-                            <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-                        </a>
-
-                        <a
-                            href="#"
-                            className="group flex items-center gap-4 text-2xl text-white transition-colors hover:text-zinc-400"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>LinkedIn</span>
-                            <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-                        </a>
-
-                        <a
-                            href="mailto:hello@example.com"
+                            href="mailto:avdhoothadke@gmail.com?subject=Let’s%20Connect"
                             className="group flex items-center gap-4 text-2xl text-white transition-colors hover:text-zinc-400"
                         >
                             <span>Email</span>
