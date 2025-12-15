@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { Project, SpotlightCardProps } from "@/types";
+import { SpotlightCardProps } from "@/types";
 import { projects } from "@/data/project";
 
 function SpotlightCard({ children, className = "" }: SpotlightCardProps) {
@@ -134,15 +134,21 @@ export default function BentoGrid() {
                                         >
                                             {project.title}
                                         </h3>
-                                        <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black p-2 rounded-full">
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black p-2 rounded-full"
+                                        >
                                             <ArrowUpRight size={16} />
-                                        </div>
+                                        </a>
+
                                     </div>
 
                                     {/* Description */}
                                     <p
-                                        className={`text-zinc-400 mt-2 ${project.featured
-                                            ? "max-w-md text-md"
+                                        className={`text-zinc-400 mt-2 group-hover:line-clamp-none ${project.featured
+                                            ? "max-w-md text-md line-clamp-2"
                                             : "text-sm line-clamp-2"
                                             }`}
                                     >
@@ -154,6 +160,6 @@ export default function BentoGrid() {
                     </motion.div>
                 ))}
             </div>
-        </section>
+        </section >
     );
 }

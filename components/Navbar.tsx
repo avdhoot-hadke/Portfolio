@@ -13,7 +13,7 @@ const navItems = [
     { id: Section.WORK, label: "Work" },
     { id: Section.SKILLS, label: "Skills" },
     { id: Section.PROJECTS, label: "Projects" },
-    { id: Section.AI, label: "AI" },
+    // { id: Section.AI, label: "AI" },
 ];
 
 export default function Navigation({
